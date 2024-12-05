@@ -132,8 +132,8 @@
         <div class="content has-text-centered">
             <p>
                 <strong>Commaner Liga Rangliste</strong><br />
-                Veranstalter:&nbsp;<a href="https://calucon.de">Outer Rim - Tabletopshop</a><br />
-                Webseite:&nbsp;<a href="https://outer-rim-tabletopshop.de/" rel="noopener">Simon Schwitz</a>
+                Veranstalter:&nbsp;<a href="https://outer-rim-tabletopshop.de/" rel="noopener">Outer Rim - Tabletopshop</a><br />
+                Webseite:&nbsp;<a href="https://calucon.de">Simon Schwitz</a>
             </p>
         </div>
     </footer>
