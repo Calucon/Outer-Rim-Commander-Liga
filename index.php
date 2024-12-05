@@ -38,6 +38,7 @@
 
     <!-- Site CSS and JS -->
     <link rel="stylesheet" href="/css/bulma.min.css">
+    <script src="/js/bulma.js"></script>
     <script src="/js/sorttable.js"></script>
 </head>
 
@@ -67,7 +68,7 @@
             </div>
             <div class="navbar-end">
                 <a class="navbar-item" href="https://outer-rim-tabletopshop.de/" target="_blank" rel="noopener">
-                    Outer Rim
+                    Outer Rim - Tabletopshop
                 </a>
             </div>
         </div>
@@ -128,7 +129,9 @@
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
-                <strong>Commaner Liga Rangliste</strong>&nbsp;&mdash;&nbsp;<a href="https://calucon.de">Simon Schwitz</a>.
+                <strong>Commaner Liga Rangliste</strong><br />
+                Veranstalter:&nbsp;<a href="https://calucon.de">Outer Rim - Tabletopshop</a><br />
+                Webseite:&nbsp;<a href="https://outer-rim-tabletopshop.de/" rel="noopener">Simon Schwitz</a>
             </p>
         </div>
     </footer>
