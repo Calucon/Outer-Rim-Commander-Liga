@@ -82,37 +82,39 @@
                 $header = fgetcsv($handle);
                 array_shift($header);
             ?>
-                <table class="table sortable is-striped is-hoverable" id="ranking-2025">
-                    <thead>
-                        <tr>
-                            <?php
-                            foreach ($header as $th) {
-                            ?>
-                                <th class="is-unselectable"><?php echo $th; ?></th>
-                            <?php
-                            }
-                            ?>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        while (($row = fgetcsv($handle)) !== FALSE) {
-                            array_shift($row);
-                        ?>
+                <div class="table-container">
+                    <table class="table sortable is-striped is-hoverable" id="ranking-2025">
+                        <thead>
                             <tr>
                                 <?php
-                                foreach ($row as $entry) {
+                                foreach ($header as $th) {
                                 ?>
-                                    <td><?php echo $entry; ?></td>
+                                    <th class="is-unselectable"><?php echo $th; ?></th>
                                 <?php
                                 }
                                 ?>
                             </tr>
-                        <?php
-                        }
-                        ?>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <?php
+                            while (($row = fgetcsv($handle)) !== FALSE) {
+                                array_shift($row);
+                            ?>
+                                <tr>
+                                    <?php
+                                    foreach ($row as $entry) {
+                                    ?>
+                                        <td><?php echo $entry; ?></td>
+                                    <?php
+                                    }
+                                    ?>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             <?php
                 fclose($handle);
             } else {
