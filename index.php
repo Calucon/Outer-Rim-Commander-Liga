@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="Calucon, Software, Programming, Security">
+    <meta name="keywords" content="Outer Rim Tabletop MTG Commander">
     <meta name="author" contents="Calucon / Simon Schwitz">
 
     <!-- HTML Meta Tags -->
@@ -47,7 +47,7 @@
         <div class="navbar-brand">
             <a class="navbar-item" href="#">
                 <figure class="image ">
-                    <img src="img/logo-or.png" />
+                    <img src="img/logo-or.webp" />
                 </figure>
                 Commander Liga
             </a>
@@ -64,6 +64,15 @@
             <div class="navbar-start">
                 <a class="navbar-item" href="#ranking-2025">
                     Rangliste
+                </a>
+                <a class="navbar-item" href="https://cloud.calucon.de/index.php/s/GLkWwXpQDbztiFW" target="_blank" rel="noopener">
+                    Allgemeine Infos
+                </a>
+                <a class="navbar-item" href="https://docs.google.com/document/d/10IA6msVCCrq_-nIhvBV1iOJt2jkVazWmZOTOqe01dnE/" target="_blank" rel="noopener">
+                    Deck Pool
+                </a>
+                <a class="navbar-item" href="https://docs.google.com/spreadsheets/d/1awIaQoymeatnHV9uArCToLbpBWDpcJaN-dWpU--YNo4" target="_blank" rel="noopener">
+                    Commander Pool
                 </a>
             </div>
             <div class="navbar-end">
@@ -131,7 +140,7 @@
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
-                <strong>Commaner Liga Rangliste</strong><br />
+                <strong>Commander Liga Rangliste</strong><br />
                 Veranstalter:&nbsp;<a href="https://outer-rim-tabletopshop.de/" rel="noopener">Outer Rim - Tabletopshop</a><br />
                 Webseite:&nbsp;<a href="https://calucon.de">Simon Schwitz</a>
             </p>
