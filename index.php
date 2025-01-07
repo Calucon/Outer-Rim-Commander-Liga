@@ -62,11 +62,17 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
+                <a class="navbar-item" href="#timetable-2025">
+                    Spieltage
+                </a>
                 <a class="navbar-item" href="#ranking-2025">
                     Rangliste
                 </a>
                 <a class="navbar-item" href="https://cloud.calucon.de/index.php/s/GLkWwXpQDbztiFW" target="_blank" rel="noopener">
                     Allgemeine Infos
+                </a>
+                <a class="navbar-item" href="https://docs.google.com/spreadsheets/d/1aY8aPrPGJpLktHIaSFsIJl3mzYdiSW4L0Dg-ndIzqvo/" target="_blank" rel="noopener">
+                    Spielplan
                 </a>
                 <a class="navbar-item" href="https://docs.google.com/document/d/10IA6msVCCrq_-nIhvBV1iOJt2jkVazWmZOTOqe01dnE/" target="_blank" rel="noopener">
                     Deck Pool
@@ -84,7 +90,59 @@
     </nav>
     <section class="section">
         <div class="container">
-            <h1 class="title">Rangliste</h1>
+            <h1 class="title is-1">Commander Liga</h1>
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">Spieltage</p>
+                </header>
+                <div class="card-content">
+                    <div class="content">
+                        <div class="table-container">
+                            <table class="table is-striped is-hoverable" id="timetable-2025">
+                                <thead>
+                                    <tr>
+                                        <th class="is-unselectable">Spieltag</th>
+                                        <th class="is-unselectable">Von</th>
+                                        <th class="is-unselectable">Bis</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $timetable = [
+                                        [1, new DateTime('2025-01-10'), new DateTime('2025-01-30T23:59')],
+                                        [2, new DateTime('2025-01-31'), new DateTime('2025-02-20T23:59')],
+                                        [3, new DateTime('2025-02-21'), new DateTime('2025-03-13T23:59')],
+                                        [4, new DateTime('2025-03-14'), new DateTime('2025-04-03T23:59')],
+                                        [5, new DateTime('2025-04-04'), new DateTime('2025-05-01T23:59')],
+                                        [6, new DateTime('2025-05-02'), new DateTime('2025-05-22T23:59')],
+                                        [7, new DateTime('2025-05-23'), new DateTime('2025-06-12T23:59')],
+                                        [8, new DateTime('2025-06-13'), new DateTime('2025-07-04T23:59')],
+                                        ['Playoff', new DateTime('2025-07-05'), new DateTime('2025-07-31T23:59')],
+                                        ['Finale', new DateTime('2025-08-01'), new DateTime('2025-09-13T23:59')],
+                                    ];
+                                    $now = new DateTime('now');
+
+                                    foreach ($timetable as $row) {
+                                    ?>
+                                        <tr class="<?php echo ($now >= $row[1] && $now <= $row[2]) ? 'is-selected' : ''; ?>">
+                                            <td><?php echo $row[0]; ?></td>
+                                            <td><?php echo $row[1]->format('d.m.Y'); ?></td>
+                                            <td><?php echo $row[2]->format('d.m.Y'); ?></td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h2 class="title is-3">Rangliste</h2>
             <?php
 
             if (($handle = fopen("players.csv", "r")) !== FALSE) {
