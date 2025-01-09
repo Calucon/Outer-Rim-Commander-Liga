@@ -68,18 +68,30 @@
                 <a class="navbar-item" href="#ranking-2025">
                     Rangliste
                 </a>
-                <a class="navbar-item" href="https://cloud.calucon.de/index.php/s/GLkWwXpQDbztiFW" target="_blank" rel="noopener">
-                    Allgemeine Infos
-                </a>
-                <a class="navbar-item" href="https://docs.google.com/spreadsheets/d/1aY8aPrPGJpLktHIaSFsIJl3mzYdiSW4L0Dg-ndIzqvo/" target="_blank" rel="noopener">
-                    Spielplan
-                </a>
-                <a class="navbar-item" href="https://docs.google.com/document/d/10IA6msVCCrq_-nIhvBV1iOJt2jkVazWmZOTOqe01dnE/" target="_blank" rel="noopener">
-                    Deck Pool
-                </a>
-                <a class="navbar-item" href="https://docs.google.com/spreadsheets/d/1awIaQoymeatnHV9uArCToLbpBWDpcJaN-dWpU--YNo4" target="_blank" rel="noopener">
-                    Commander Pool
-                </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        Externe Links
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="https://docs.google.com/document/d/15twQ3RlrfAUgsiOzd4tgaswiyK1cYA6HCyA6DNaukus/" target="_blank" rel="noopener">
+                            Regelwerk
+                        </a>
+                        <a class="navbar-item" href="https://cloud.calucon.de/index.php/s/GLkWwXpQDbztiFW" target="_blank" rel="noopener">
+                            Info Präsentation
+                        </a>
+                        <a class="navbar-item" href="https://docs.google.com/spreadsheets/d/1aY8aPrPGJpLktHIaSFsIJl3mzYdiSW4L0Dg-ndIzqvo/" target="_blank" rel="noopener">
+                            Spielplan
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item" href="https://docs.google.com/document/d/10IA6msVCCrq_-nIhvBV1iOJt2jkVazWmZOTOqe01dnE/" target="_blank" rel="noopener">
+                            Deck Pool
+                        </a>
+                        <a class="navbar-item" href="https://docs.google.com/spreadsheets/d/1awIaQoymeatnHV9uArCToLbpBWDpcJaN-dWpU--YNo4" target="_blank" rel="noopener">
+                            Commander Pool
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="navbar-end">
                 <a class="navbar-item" href="https://outer-rim-tabletopshop.de/" target="_blank" rel="noopener">
@@ -137,12 +149,18 @@
                         </div>
                     </div>
                 </div>
+                <footer class="card-footer">
+                    <a class="card-footer-item" href="https://docs.google.com/spreadsheets/d/1aY8aPrPGJpLktHIaSFsIJl3mzYdiSW4L0Dg-ndIzqvo/" target="_blank" rel="noopener">Spielplan</a>
+                </footer>
             </div>
         </div>
     </section>
     <section class="section">
         <div class="container">
             <h2 class="title is-3">Rangliste</h2>
+            <div class="notification is-size-7 is-italic">
+                Klicke auf eine Spalte um die Tabelle zu sortieren!
+            </div>
             <?php
 
             if (($handle = fopen("players.csv", "r")) !== FALSE) {
@@ -200,6 +218,7 @@
             <p>
                 <strong>Commander Liga Rangliste</strong><br />
                 Veranstalter:&nbsp;<a href="https://outer-rim-tabletopshop.de/" rel="noopener">Outer Rim - Tabletopshop</a><br />
+                Ligaverwaltung:&nbsp;<a href="#">Aron, Marc D.</a>&nbsp;<span class="is-size-7">(Kontakt via Whatsapp)</span><br />
                 Webseite:&nbsp;<a href="https://calucon.de">Simon Schwitz</a>
             </p>
         </div>
