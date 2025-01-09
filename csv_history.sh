@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pushd /mnt/md0/www/commander_liga.calucon.de
+
 LAST_MODIFIED_FILE=".last_modified"
 CSV_FILE="players.csv"
 DATE_FORMAT="+%Y-%d-%mT%H:%M:%S"
@@ -24,6 +26,10 @@ MODIFIED_DATE=$(date -r "$CSV_FILE" "$DATE_FORMAT")
 # archive current file version
 if [ "$LAST_MODIFIED" != "$MODIFIED_DATE" ]; then
     cp "$CSV_FILE" "archive/players_${MODIFIED_DATE}.csv"
-    echo "$LAST_MODIFIED" >$LAST_MODIFIED_FILE
+    echo "$MODIFIED_DATE" >$LAST_MODIFIED_FILE
     echo "Modification detected, creating Archive!"
 fi
+
+curl https://uptime.betterstack.com/api/v1/heartbeat/fLyd7LHX7737MVU1STWMMuak
+
+popd
