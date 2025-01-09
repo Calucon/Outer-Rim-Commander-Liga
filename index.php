@@ -42,6 +42,19 @@
     <script src="/js/sorttable.js"></script>
 </head>
 
+<?php
+$csvFile = "players.csv";
+$isArchive = false;
+
+if (isset($_GET['archive'])) {
+    $tmpCsvFile = urldecode($_GET['archive']) . '.csv';
+    if (!str_starts_with($tmpCsvFile, '.')) {
+        $csvFile = "archive/$tmpCsvFile";
+        $isArchive = true;
+    }
+}
+?>
+
 <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
@@ -67,6 +80,9 @@
                 </a>
                 <a class="navbar-item" href="#ranking-2025">
                     Rangliste
+                </a>
+                <a class="navbar-item" href="#archive">
+                    Archiv
                 </a>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
@@ -100,7 +116,7 @@
             </div>
         </div>
     </nav>
-    <section class="section">
+    <section class="section" id="timetable-2025">
         <div class="container">
             <h1 class="title is-1">Commander Liga</h1>
             <div class="card">
@@ -110,7 +126,7 @@
                 <div class="card-content">
                     <div class="content">
                         <div class="table-container">
-                            <table class="table is-striped is-hoverable" id="timetable-2025">
+                            <table class="table is-striped is-hoverable">
                                 <thead>
                                     <tr>
                                         <th class="is-unselectable">Spieltag</th>
@@ -155,20 +171,32 @@
             </div>
         </div>
     </section>
-    <section class="section">
+    <section class="section" id="ranking-2025">
         <div class="container">
             <h2 class="title is-3">Rangliste</h2>
+            <?php
+            if ($isArchive) {
+            ?>
+                <div class="notification is-warning">
+                    Du schaust dir grad eine Archiv-Version der Rangliste an!<br />
+                    <span class="is-size-7">
+                        Klicke <a href="/#ranking-2025">hier</a> um die aktuelle Rangliste zu sehen.
+                    </span>
+                </div>
+            <?php
+            }
+            ?>
             <div class="notification is-size-7 is-italic">
                 Klicke auf eine Spalte um die Tabelle zu sortieren!
             </div>
             <?php
 
-            if (($handle = fopen("players.csv", "r")) !== FALSE) {
+            if (($handle = fopen($csvFile, "r")) !== FALSE) {
                 $header = fgetcsv($handle);
                 array_shift($header);
             ?>
                 <div class="table-container">
-                    <table class="table sortable is-striped is-hoverable" id="ranking-2025">
+                    <table class="table sortable is-striped is-hoverable">
                         <thead>
                             <tr>
                                 <?php
@@ -211,6 +239,41 @@
             }
 
             ?>
+        </div>
+    </section>
+    <section class="section" id="archive">
+        <div class="container">
+            <article class="panel is-link">
+                <p class="panel-heading">[ARCHIV] Rangliste</p>
+                <?php
+                $files = scandir('archive');
+                $files = array_filter($files, fn($it) => str_ends_with($it, '.csv'));
+
+                if (empty($files)) {
+                ?>
+                    <a class="panel-block">
+                        <span class="is-italic">
+                            Es gibt noch kein Archiv!
+                        </span>
+                    </a>
+                    <?php
+                } else {
+                    foreach ($files as $file) {
+                        $file = rtrim($file, '.csv');
+                        $parts = explode('_', $file);
+                        if (count($parts) < 2) continue;
+
+                        $date = new DateTime($parts[1] ?? '');
+                        $url = "/?archive=" . urlencode($file) . '#ranking-2025';
+                    ?>
+                        <a class="panel-block" href="<?php echo $url; ?>">
+                            <?php echo $date->format('d.m.Y'); ?>
+                        </a>
+                <?php
+                    }
+                }
+                ?>
+            </article>
         </div>
     </section>
     <footer class="footer">
