@@ -4,7 +4,7 @@ pushd /mnt/md0/www/commander_liga.calucon.de
 
 LAST_MODIFIED_FILE=".last_modified"
 CSV_FILE="players.csv"
-DATE_FORMAT="+%Y-%d-%mT%H:%M:%S"
+DATE_FORMAT="+%Y-%m-%dT%H:%M:%S"
 ARCHIVE_DIR="archive/"
 
 touch $LAST_MODIFIED_FILE

@@ -267,7 +267,7 @@ if (isset($_GET['archive'])) {
                         $url = "/?archive=" . urlencode($file) . '#ranking-2025';
                     ?>
                         <a class="panel-block" href="<?php echo $url; ?>">
-                            Rangliste (Stand: <?php echo $date->format('d.m.Y H:m:s'); ?>)
+                            Rangliste (Stand: <?php echo $date->format('d.m.Y H:i:s'); ?>)
                         </a>
                 <?php
                     }
