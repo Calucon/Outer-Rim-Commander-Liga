@@ -244,7 +244,7 @@ if (isset($_GET['archive'])) {
     <section class="section" id="archive">
         <div class="container">
             <article class="panel is-link">
-                <p class="panel-heading">[ARCHIV] Rangliste</p>
+                <p class="panel-heading">Archiv</p>
                 <?php
                 $files = scandir('archive');
                 $files = array_filter($files, fn($it) => str_ends_with($it, '.csv'));
@@ -267,7 +267,7 @@ if (isset($_GET['archive'])) {
                         $url = "/?archive=" . urlencode($file) . '#ranking-2025';
                     ?>
                         <a class="panel-block" href="<?php echo $url; ?>">
-                            <?php echo $date->format('d.m.Y'); ?>
+                            Rangliste (Stand: <?php echo $date->format('d.m.Y H:m:s'); ?>)
                         </a>
                 <?php
                     }
