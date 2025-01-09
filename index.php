@@ -105,7 +105,7 @@
             <h1 class="title is-1">Commander Liga</h1>
             <div class="card">
                 <header class="card-header">
-                    <p class="card-header-title">Spieltage</p>
+                    <p class="card-header-title">Übersicht Spieltage</p>
                 </header>
                 <div class="card-content">
                     <div class="content">
