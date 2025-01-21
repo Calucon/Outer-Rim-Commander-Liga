@@ -240,7 +240,6 @@ if (isset($_GET['archive'])) {
                     </table>
                 </div>
             <?php
-                fclose($handle);
             } else {
             ?>
                 <div class=" notification is-danger">
@@ -259,6 +258,7 @@ if (isset($_GET['archive'])) {
                 <?php
                 $files = scandir('archive');
                 $files = array_filter($files, fn($it) => str_ends_with($it, '.csv'));
+                $files = array_reverse($files);
 
                 if (empty($files)) {
                 ?>
