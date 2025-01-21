@@ -194,6 +194,17 @@ if (isset($_GET['archive'])) {
             if (($handle = fopen($csvFile, "r")) !== FALSE) {
                 $header = fgetcsv($handle);
                 array_shift($header);
+
+                $rows = [];
+                while (($row = fgetcsv($handle)) !== FALSE) {
+                    $rows[] = $row;
+                }
+
+                $pointsIndex = 2;
+                usort($rows, fn($x, $y) => $x[$pointsIndex] <= $y[$pointsIndex]);
+
+                fclose($handle);
+
             ?>
                 <div class="table-container">
                     <table class="table sortable is-striped is-hoverable">
@@ -210,7 +221,7 @@ if (isset($_GET['archive'])) {
                         </thead>
                         <tbody>
                             <?php
-                            while (($row = fgetcsv($handle)) !== FALSE) {
+                            foreach ($rows as $row) {
                                 array_shift($row);
                             ?>
                                 <tr>
