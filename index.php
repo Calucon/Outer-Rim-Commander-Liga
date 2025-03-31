@@ -53,6 +53,7 @@ if (isset($_GET['archive'])) {
         $isArchive = true;
     }
 }
+
 ?>
 
 <body>
@@ -96,7 +97,7 @@ if (isset($_GET['archive'])) {
                         <a class="navbar-item" href="https://cloud.calucon.de/index.php/s/GLkWwXpQDbztiFW" target="_blank" rel="noopener">
                             Info Präsentation
                         </a>
-                        <a class="navbar-item" href="https://docs.google.com/spreadsheets/d/1aY8aPrPGJpLktHIaSFsIJl3mzYdiSW4L0Dg-ndIzqvo/" target="_blank" rel="noopener">
+                        <a class="navbar-item" href="https://docs.google.com/spreadsheets/d/15ZigSvSE8n-sNH8lkj4MrZQZ1JPZk7E22_1qTbwuvZs/edit?gid=1223314812#gid=1223314812" target="_blank" rel="noopener">
                             Spielplan
                         </a>
                         <hr class="navbar-divider">
@@ -132,21 +133,22 @@ if (isset($_GET['archive'])) {
                                         <th class="is-unselectable">Spieltag</th>
                                         <th class="is-unselectable">Von</th>
                                         <th class="is-unselectable">Bis</th>
+                                        <th class="is-unselectable">Packs</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     $timetable = [
-                                        [1, new DateTime('2025-01-10'), new DateTime('2025-01-30T23:59')],
-                                        [2, new DateTime('2025-01-31'), new DateTime('2025-02-20T23:59')],
-                                        [3, new DateTime('2025-02-21'), new DateTime('2025-03-13T23:59')],
-                                        [4, new DateTime('2025-03-14'), new DateTime('2025-04-03T23:59')],
-                                        [5, new DateTime('2025-04-04'), new DateTime('2025-05-01T23:59')],
-                                        [6, new DateTime('2025-05-02'), new DateTime('2025-05-22T23:59')],
-                                        [7, new DateTime('2025-05-23'), new DateTime('2025-06-12T23:59')],
-                                        [8, new DateTime('2025-06-13'), new DateTime('2025-07-04T23:59')],
-                                        ['Playoff', new DateTime('2025-07-05'), new DateTime('2025-07-31T23:59')],
-                                        ['Finale', new DateTime('2025-08-01'), new DateTime('2025-09-13T23:59')],
+                                        [1, new DateTime('2025-01-10'), new DateTime('2025-01-30T23:59'), ['3x FDN']],
+                                        [2, new DateTime('2025-01-31'), new DateTime('2025-02-20T23:59'), ['1x FDN', '1x DSK', '1x Frei']],
+                                        [3, new DateTime('2025-02-21'), new DateTime('2025-03-13T23:59'), ['1x FDN', '1x OTJ', '1x Frei']],
+                                        [4, new DateTime('2025-03-14'), new DateTime('2025-04-03T23:59'), ['1x FDN', '1x BLB', '1x Frei']],
+                                        [5, new DateTime('2025-04-04'), new DateTime('2025-05-01T23:59'), ['2x FDN', '1x MKM']],
+                                        [6, new DateTime('2025-05-02'), new DateTime('2025-05-22T23:59'), ['1x FDN', '1x DFT', '1x Frei']],
+                                        [7, new DateTime('2025-05-23'), new DateTime('2025-06-12T23:59'), ['1x FDN', '1x TDM', '1x Frei']],
+                                        [8, new DateTime('2025-06-13'), new DateTime('2025-07-04T23:59'), ['1x FDN', '1x FIN', '1x Frei']],
+                                        ['Playoff', new DateTime('2025-07-05'), new DateTime('2025-07-31T23:59'), ['3x Frei']],
+                                        ['Finale', new DateTime('2025-08-01'), new DateTime('2025-09-13T23:59'), []],
                                     ];
                                     $now = new DateTime('now');
 
@@ -156,6 +158,7 @@ if (isset($_GET['archive'])) {
                                             <td><?php echo $row[0]; ?></td>
                                             <td><?php echo $row[1]->format('d.m.Y'); ?></td>
                                             <td><?php echo $row[2]->format('d.m.Y'); ?></td>
+                                            <td><?php echo implode(', ', $row[3]); ?></td>
                                         </tr>
                                     <?php
                                     }
@@ -166,7 +169,7 @@ if (isset($_GET['archive'])) {
                     </div>
                 </div>
                 <footer class="card-footer">
-                    <a class="card-footer-item" href="https://docs.google.com/spreadsheets/d/1aY8aPrPGJpLktHIaSFsIJl3mzYdiSW4L0Dg-ndIzqvo/" target="_blank" rel="noopener">Spielplan</a>
+                    <a class="card-footer-item" href="https://docs.google.com/spreadsheets/d/15ZigSvSE8n-sNH8lkj4MrZQZ1JPZk7E22_1qTbwuvZs/edit?gid=1223314812#gid=1223314812" target="_blank" rel="noopener">Spielplan</a>
                 </footer>
             </div>
         </div>
